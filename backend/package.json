@@ -1,5 +1,15 @@
 {
+  "type": "module",
+  "start": "nodemon server.js",
   "dependencies": {
-    "fastify": "^4.24.3"
+    "@fastify/mongodb": "^8.0.0",
+    "@libsql/client": "^0.4.0-pre.5",
+    "dotenv": "^16.3.1",
+    "fastify": "^4.24.3",
+    "fastify-plugin": "^4.5.1",
+    "save-dev": "^0.0.1-security"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
   }
 }
