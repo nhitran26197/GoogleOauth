@@ -6,9 +6,13 @@
   "dependencies": {
     "@fastify/mongodb": "^8.0.0",
     "@libsql/client": "^0.4.0-pre.5",
+    "bcrypt": "^5.1.1",
+    "deep-email-validator": "^0.1.21",
     "dotenv": "^16.3.1",
+    "email-validator": "^2.0.4",
     "fastify": "^4.24.3",
     "fastify-plugin": "^4.5.1",
+    "node-email-check": "^1.0.4",
     "save-dev": "^0.0.1-security"
   },
   "devDependencies": {
