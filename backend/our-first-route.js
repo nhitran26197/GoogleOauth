@@ -1,7 +1,7 @@
 
 async function routes(fastify, options){
-    fastify.get("/", async(request, reply) =>{
-        return {hello:"nice "}
+    const res = fastify.get("/", async(request, reply) =>{
+        return "hello"
     })
 }
 export default routes

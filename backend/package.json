@@ -1,6 +1,8 @@
 {
   "type": "module",
-  "start": "nodemon server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
   "dependencies": {
     "@fastify/mongodb": "^8.0.0",
     "@libsql/client": "^0.4.0-pre.5",
