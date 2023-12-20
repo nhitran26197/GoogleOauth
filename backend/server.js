@@ -1,20 +1,19 @@
 // ESM
 import Fastify from 'fastify';
-
+import login from './login.js';
 import createAccountRoutes from "./createAccount.js"
 import { createClient } from "@libsql/client";
 import 'dotenv/config';
+import authPlugin from "./authentication.js"
+
+
 
 
 
 const fastify = Fastify({logger: false})
-const client = createClient({
-  url: "libsql://user-login-nhitran26197.turso.io",
-  authToken: process.env.DB_TOKEN
-});
-
-
+fastify.register(authPlugin)
 fastify.register(createAccountRoutes)
+fastify.register(login)
 
 
 fastify.listen(process.env.PORT, function(err){

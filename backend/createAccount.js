@@ -12,26 +12,8 @@ const dbconnector = createClient({
     });
 async function routes(fastify, options){
 
-    fastify.register(async function createAccountRoute(fastify, options) {
-        fastify.post('/createAccount', async (request, reply) => {
-        
-            const email = request.body.email;
-            const password = request.body.password;
-            console.log(email);
-            try {
-                await dbconnector.execute({
-                    sql:'INSERT INTO user ( email, password) VALUES (:email,:password)', 
-                    args:{email:email, 
-                        password:password}});
-            
-            } catch (e) {
-                console.log(e);
-            }
-        });
-    });
-
     fastify.register(async function checkValidEmail(fastify, options){
-        fastify.post("/checkValidEmail", async (request, reply) => {
+        fastify.post("/createAccount", async (request, reply) => {
             const email = request.body.email;
             const password = request.body.password
  
@@ -45,17 +27,17 @@ async function routes(fastify, options){
                         args: { email: email}
                     });
                     const hashResult = await hashedPW(email,password, workfactor)
-                    reply.send({message: hashResult})
+                    reply.status(200).send({message: 'success'})
 
                 } catch (e) {
                     console.error(e.message); 
-                    reply.send({message: "Email exists"})
+                    reply.send({message: "email exists"})
                 }
 
 
             }else{
-                console.log(" Invalid email")
-                reply.send({message:"Invalid email"})
+                console.log(" invalid email")
+                reply.send({message:"invalid email"})
             }            
             
         });
@@ -79,9 +61,9 @@ const hashedPW = async function hashingPassword(email, password, workfactor){
                         sql:'UPDATE user SET password =? WHERE email =?',
                         args : [hashedpw,email]
                     })
-                    return "Success"
+                    return "success"
                 }catch(e){
-                    return "Fail"
+                    return "fail"
                 }
             }catch(e){
                 console.log(e.message)

@@ -4,6 +4,8 @@
     "start": "nodemon server.js"
   },
   "dependencies": {
+    "@fastify/cookie": "^9.2.0",
+    "@fastify/jwt": "^7.2.4",
     "@fastify/mongodb": "^8.0.0",
     "@libsql/client": "^0.4.0-pre.5",
     "bcrypt": "^5.1.1",
