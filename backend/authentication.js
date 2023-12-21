@@ -3,11 +3,12 @@ import FastifyJwt from '@fastify/jwt';
 import 'dotenv/config';
 import cookie from '@fastify/cookie';
 const auth = fp(async function(fastify, options){
+
     fastify.register(FastifyJwt, {
         secret: process.env.JWT_SECRET,
-        cookie: {
+         cookie: {
             cookieName : 'token'
-        }
+         }
       })
     fastify.register(cookie)
 
@@ -21,5 +22,6 @@ const auth = fp(async function(fastify, options){
             reply.status(401).send({message: "Authentication failed"})
         }
 })
+
 })
 export default auth;

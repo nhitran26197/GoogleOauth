@@ -14,8 +14,11 @@
     "email-validator": "^2.0.4",
     "fastify": "^4.24.3",
     "fastify-plugin": "^4.5.1",
+    "jsonwebtoken": "^9.0.2",
     "node-email-check": "^1.0.4",
-    "save-dev": "^0.0.1-security"
+    "nodemailer": "^6.9.7",
+    "save-dev": "^0.0.1-security",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "nodemon": "^3.0.2"
