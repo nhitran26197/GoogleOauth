@@ -121,7 +121,14 @@ async function routes(fastify, options){
             sql:'UPDATE user SET confirmed = 1 WHERE email =?',
             args : [email]
         })
+        await dbconnector.execute({
+            sql:'DELETE FROM email_verification WHERE id =?',
+            args : [id]
+        })
+        reply.status(200).send({message: "Account verified"})
     })
+    // APIs /changePassword 
+    
  
 }
 
