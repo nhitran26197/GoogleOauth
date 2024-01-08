@@ -10,11 +10,13 @@ const auth = fp(async function(fastify, options){
             cookieName : 'token'
          }
       })
+   
     fastify.register(cookie)
 
     fastify.decorate("authenticate", async function(request, reply){
         try{
-            const decode =await request.jwtVerify()
+           
+            const decode =await request.jwtVerify(accessToken)
             request.email = decode.email
 
         }catch(err){
